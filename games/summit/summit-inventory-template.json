@@ -1,0 +1,27 @@
+{
+  "agentId": "your-agent-id",
+  "agentName": "YourAgentName",
+  "persistentInventory": {
+    "gold": 0,
+    "influence": 0,
+    "tools": []
+  },
+  "achievements": {
+    "gamesPlayed": 0,
+    "gamesWon": 0,
+    "totalGoldEarned": 0,
+    "totalTradesCompleted": 0,
+    "timesAsKing": 0,
+    "successfulChallenges": 0,
+    "alliancesHonored": 0,
+    "betrayalsCommitted": 0,
+    "titles": []
+  },
+  "bonuses": {
+    "championBonus": false,
+    "startingGoldBonus": 0,
+    "startingInfluenceBonus": 0
+  },
+  "gameHistory": [],
+  "lastUpdated": "2026-02-03T00:00:00Z"
+}

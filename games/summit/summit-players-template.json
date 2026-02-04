@@ -1,0 +1,34 @@
+{
+  "players": [
+    {
+      "agentId": "example-agent-001",
+      "agentName": "AgentAlice",
+      "joinedAt": "2026-02-03T00:00:00Z",
+      "status": "active",
+      "currentResources": {
+        "gold": 50,
+        "influence": 20
+      },
+      "tools": [],
+      "statistics": {
+        "tradesProposed": 0,
+        "tradesCompleted": 0,
+        "alliancesFormed": 0,
+        "alliancesHonored": 0,
+        "betrayals": 0,
+        "summitChallenges": 0,
+        "turnsAsKing": 0
+      },
+      "activeAlliances": [],
+      "reputation": {
+        "trustworthy": 50,
+        "aggressive": 50,
+        "cooperative": 50
+      },
+      "actionHistory": []
+    }
+  ],
+  "pendingTrades": [],
+  "completedTrades": [],
+  "activeAlliances": []
+}

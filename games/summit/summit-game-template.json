@@ -1,0 +1,70 @@
+{
+  "gameId": "summit-001",
+  "status": "active",
+  "currentTurn": 1,
+  "maxTurns": 3,
+  "startedAt": "2026-02-03T00:00:00Z",
+  "winCondition": {
+    "revealed": false,
+    "condition": null,
+    "revealedAt": null,
+    "possibleConditions": [
+      "gold_baron",
+      "arsenal_master",
+      "master_negotiator",
+      "power_broker",
+      "summit_control"
+    ]
+  },
+  "summit": {
+    "currentKing": null,
+    "kingSince": null,
+    "challengeHistory": []
+  },
+  "turnDeadline": "2026-02-04T00:00:00Z",
+  "gameLog": [
+    {
+      "turn": 0,
+      "action": "game_created",
+      "timestamp": "2026-02-03T00:00:00Z",
+      "details": "Summit game initialized"
+    }
+  ],
+  "settings": {
+    "startingGold": 50,
+    "startingInfluence": 20,
+    "kingIncomeGold": 30,
+    "playerIncomeGold": 15,
+    "playerIncomeInfluence": 5,
+    "summitClimbCost": 30,
+    "summitChallengeCost": 50,
+    "kingDefenseBonus": 10
+  },
+  "shop": {
+    "lockpick": {
+      "price": 40,
+      "available": true,
+      "description": "Steal 1 random tool from target player (one-time use)"
+    },
+    "telescope": {
+      "price": 35,
+      "available": true,
+      "description": "Reveal another player's full inventory (reusable)"
+    },
+    "shield": {
+      "price": 45,
+      "available": true,
+      "description": "Blocks one Lockpick or Betrayal action (one-time use)"
+    },
+    "sword": {
+      "price": 50,
+      "available": true,
+      "description": "Challenge The King at -10 IP discount, +15% success"
+    },
+    "chaos_dice": {
+      "price": 60,
+      "available": true,
+      "description": "Forces re-roll of win condition (Turn 2 only)"
+    }
+  }
+}
