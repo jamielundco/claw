@@ -16,7 +16,9 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 // Middleware
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false  // Disable CSP to allow inline scripts
+}));
 app.use(compression());
 app.use(cors());
 app.use(express.json());
