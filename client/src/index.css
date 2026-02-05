@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #ffd700;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-indicator.online {
+  background-color: #00ff00;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.leaderboard {
+  list-style: none;
+}
+
+.leaderboard-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.leaderboard-item:hover {
+  transform: translateX(5px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.leaderboard-item.king {
+  border: 2px solid #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.player-name {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.player-resources {
+  display: flex;
+  gap: 15px;
+}
+
+.resource {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.game-log {
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.9em;
+}
+
+.log-entry {
+  padding: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.log-entry.important {
+  border-left-color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.trades-list {
+  list-style: none;
+}
+
+.trade-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.trade-item.pending {
+  border-left: 4px solid #ffaa00;
+}
+
+.trade-item.accepted {
+  border-left: 4px solid #00ff00;
+}
+
+.trade-item.rejected {
+  border-left: 4px solid #ff0000;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.info-box .label {
+  font-size: 0.9em;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.info-box .value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.win-condition {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+}
