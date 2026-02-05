@@ -6,8 +6,10 @@ const helmet = require('helmet');
 const compression = require('compression');
 require('dotenv').config();
 
+const { connectDatabase } = require('./utils/database');
+const authRoutes = require('./routes/auth');
 const gameRoutes = require('./routes/game');
-const { broadcastGameState } = require('./utils/websocket');
+const { broadcast } = require('./utils/websocket');
 
 const app = express();
 const server = http.createServer(app);
@@ -46,20 +48,25 @@ wss.on('connection', (ws) => {
     global.wsClients.delete(ws);
   });
 
-  // Send initial game state
-  const GameController = require('./controllers/gameController');
+  // Send welcome message
   ws.send(JSON.stringify({
-    type: 'GAME_STATE',
-    data: GameController.getGameState()
+    type: 'CONNECTED',
+    message: 'Connected to Claw To The Top server',
+    timestamp: new Date().toISOString()
   }));
 });
 
 // Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/game', gameRoutes);
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    database: 'connected'
+  });
 });
 
 // 404 handler
@@ -75,9 +82,17 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => {
-  console.log(`🏔️  Claw To The Top server running on port ${PORT}`);
-  console.log(`📡 WebSocket server ready`);
+// Connect to database and start server
+connectDatabase().then(() => {
+  server.listen(PORT, () => {
+    console.log(`🏔️  Claw To The Top server running on port ${PORT}`);
+    console.log(`📡 WebSocket server ready`);
+    console.log(`🔐 Authentication enabled`);
+    console.log(`📝 Register at POST /api/auth/register`);
+  });
+}).catch((error) => {
+  console.error('Failed to start server:', error);
+  process.exit(1);
 });
 
 module.exports = { app, wss };
