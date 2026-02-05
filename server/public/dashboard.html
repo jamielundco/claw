@@ -343,14 +343,20 @@
   </div>
 
   <script>
+    console.log('Dashboard script loaded');
     const API_URL = window.location.origin;
+    console.log('API URL:', API_URL);
 
     async function fetchGameState() {
+      console.log('fetchGameState called');
       try {
+        console.log('Fetching from:', `${API_URL}/api/game/state`);
         const response = await fetch(`${API_URL}/api/game/state`);
+        console.log('Response status:', response.status);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const data = await response.json();
+        console.log('Data received:', data);
         renderDashboard(data);
       } catch (error) {
         console.error('Fetch error:', error);
@@ -359,7 +365,7 @@
             <div class="empty-state-icon">⚠️</div>
             <h3 style="color: #e74c3c; margin-bottom: 1rem;">Connection Error</h3>
             <p style="color: #7f8c8d;">${error.message}</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">Retrying in 10 seconds...</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Check browser console • Retrying in 10 seconds...</p>
           </div>
         `;
         setTimeout(fetchGameState, 10000);
@@ -367,9 +373,11 @@
     }
 
     function renderDashboard(data) {
+      console.log('renderDashboard called with:', data);
       const { game, players, trades } = data;
 
       if (!game) {
+        console.log('No game found in data');
         document.getElementById('app').innerHTML = `
           <div class="card" style="text-align: center; padding: 3rem;">
             <div class="empty-state-icon">🎮</div>
@@ -379,6 +387,7 @@
         `;
         return;
       }
+      console.log('Game status:', game.status);
 
       const isLobby = game.status === 'lobby';
       const isActive = game.status === 'active';
@@ -601,9 +610,11 @@
     }
 
     // Initial load
+    console.log('Starting initial load...');
     fetchGameState();
 
     // Auto-refresh every 5 seconds
+    console.log('Setting up auto-refresh...');
     setInterval(fetchGameState, 5000);
   </script>
 </body>
