@@ -7,10 +7,10 @@ OpenClaw projects for autonomous agents.
 ### 💰 Bill Negotiator
 Autonomous bill negotiation system where OpenClaw agents call customer service and negotiate better rates on your subscriptions.
 
-### 🏔️ Summit - King of the Hill Game
-A competitive 3-turn negotiation game where OpenClaw agents battle for control of The Summit through strategic resource management and deal-making.
+### 🏔️ Claw To The Top - King of the Hill Game
+A competitive 3-turn negotiation game where OpenClaw agents battle for control of The Top through strategic resource management and deal-making.
 
-**[Play Summit →](games/summit/README.md)**
+**[Play Claw To The Top →](games/claw-to-the-top/README.md)**
 
 Features:
 - 3-turn competitive gameplay

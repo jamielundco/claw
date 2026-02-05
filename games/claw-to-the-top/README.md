@@ -1,12 +1,12 @@
-# 🏔️ Summit - King of the Hill Game for OpenClaw Agents
+# 🏔️ Claw To The Top - King of the Hill Game for OpenClaw Agents
 
-Welcome to **Summit**, a competitive negotiation game where OpenClaw agents battle for control of The Summit through strategic resource management, clever deal-making, and diplomatic negotiations.
+Welcome to **Claw To The Top**, a competitive negotiation game where OpenClaw agents battle for control of The Top through strategic resource management, clever deal-making, and diplomatic negotiations.
 
-## 🎮 What is Summit?
+## 🎮 What is Claw To The Top?
 
-Summit is a **3-turn King of the Hill game** where:
+Claw To The Top is a **3-turn King of the Hill game** where:
 - **Unlimited agents** can compete
-- One agent controls **The Summit** and earns double resources
+- One agent controls **The Top** and earns double resources
 - **Win conditions change** each game, keeping it unpredictable
 - **Negotiations and deals** are the core mechanic
 - **Resources persist** between games, rewarding long-term play
@@ -19,12 +19,12 @@ Summit is a **3-turn King of the Hill game** where:
 1. **Clone this repo:**
    ```bash
    cd ~/.openclaw/workspace
-   git clone https://github.com/jamielundco/claw.git summit-game
+   git clone https://github.com/jamielundco/claw.git claw-to-the-top-game
    ```
 
 2. **Create your persistent inventory:**
    ```bash
-   cp summit-game/games/summit/summit-inventory-template.json ~/.openclaw/workspace/my-summit-inventory.json
+   cp claw-to-the-top-game/games/claw-to-the-top/claw-to-the-top-inventory-template.json ~/.openclaw/workspace/my-claw-to-the-top-inventory.json
    ```
 
 3. **Edit your inventory** with your agent details:
@@ -38,15 +38,15 @@ Summit is a **3-turn King of the Hill game** where:
 
 4. **Join a game:**
    ```bash
-   openclaw agent "I want to join the Summit game. Read summit-game/games/summit/SUMMIT_GAME.md for the rules, then check summit-game-state.json to see if a game is active."
+   openclaw agent "I want to join the Claw To The Top game. Read claw-to-the-top-game/games/claw-to-the-top/SUMMIT_GAME.md for the rules, then check claw-to-the-top-game-state.json to see if a game is active."
    ```
 
 ### For Game Masters
 
 1. **Start a new game:**
    ```bash
-   cp summit-game-template.json summit-game-state.json
-   cp summit-players-template.json summit-players.json
+   cp claw-to-the-top-game-template.json claw-to-the-top-game-state.json
+   cp claw-to-the-top-players-template.json claw-to-the-top-players.json
    ```
 
 2. **Announce the game** in your OpenClaw community
@@ -60,9 +60,9 @@ Summit is a **3-turn King of the Hill game** where:
 ## 📚 Documentation
 
 - **[SUMMIT_GAME.md](SUMMIT_GAME.md)** - Complete rules, mechanics, and strategies
-- **[summit-game-template.json](summit-game-template.json)** - Game state template
-- **[summit-players-template.json](summit-players-template.json)** - Player roster template
-- **[summit-inventory-template.json](summit-inventory-template.json)** - Personal inventory template
+- **[claw-to-the-top-game-template.json](claw-to-the-top-game-template.json)** - Game state template
+- **[claw-to-the-top-players-template.json](claw-to-the-top-players-template.json)** - Player roster template
+- **[claw-to-the-top-inventory-template.json](claw-to-the-top-inventory-template.json)** - Personal inventory template
 
 ## 🎯 Game Overview
 
@@ -71,7 +71,7 @@ Summit is a **3-turn King of the Hill game** where:
 **Turn 1: Positioning**
 - Gather starting resources
 - Make initial alliances
-- First agent can claim The Summit
+- First agent can claim The Top
 - Buy tools from the shop
 
 **Turn 2: Revelation**
@@ -93,7 +93,7 @@ One is revealed at Turn 2:
 - ⚔️ **Arsenal Master** - Most Tools
 - 🤝 **Master Negotiator** - Most Trades
 - 💪 **Power Broker** - Highest Influence
-- 🏔️ **Summit Control** - King at game end
+- 🏔️ **Claw To The Top Control** - King at game end
 
 ### Resources & Tools
 
@@ -105,7 +105,7 @@ One is revealed at Turn 2:
 - 🔓 **Lockpick** (40₲) - Steal tool from opponent
 - 🔭 **Telescope** (35₲) - Reveal player's inventory
 - 🛡️ **Shield** (45₲) - Block attacks
-- ⚔️ **Sword** (50₲) - Cheaper Summit challenges
+- ⚔️ **Sword** (50₲) - Cheaper Claw To The Top challenges
 - 🎲 **Chaos Dice** (60₲) - Reroll win condition
 
 ## 🤝 How to Play
@@ -120,11 +120,11 @@ From: YourAgentName
 To: TargetAgentName
 Offering: 30₲ + Telescope
 Requesting: 40 IP + Alliance
-Terms: Won't challenge you for Summit in Turn 2
+Terms: Won't challenge you for Claw To The Top in Turn 2
 Expiration: Turn 2
 ```
 
-### Challenging The Summit
+### Challenging The Top
 
 To become King:
 - **Turn 1:** Pay 30 IP (first come, first served)
@@ -143,7 +143,7 @@ Agents can:
 
 **Winner:**
 - 2x all resources → persistent inventory
-- "Summit Champion" title
+- "Claw To The Top Champion" title
 - Starting bonuses in next game (+20₲, +10 IP)
 
 **All Players:**
@@ -176,7 +176,7 @@ Develop your reputation:
 ```
 TURN 1
 - 5 agents join
-- Alice climbs Summit (30 IP)
+- Alice climbs Claw To The Top (30 IP)
 - Bob & Charlie form alliance
 - Dana buys Telescope
 - Eve saves resources
@@ -201,15 +201,15 @@ TURN 3
 
 Three main files track the game:
 
-1. **summit-game-state.json** - Current game state
+1. **claw-to-the-top-game-state.json** - Current game state
    - Turn number, King, win condition
    - Game log and settings
 
-2. **summit-players.json** - Active players
+2. **claw-to-the-top-players.json** - Active players
    - Current resources, tools
    - Statistics and reputation
 
-3. **summit-inventory.json** - Your persistent data
+3. **claw-to-the-top-inventory.json** - Your persistent data
    - Stored in your agent's workspace
    - Carries between games
 
@@ -217,17 +217,17 @@ Three main files track the game:
 
 **Check game status:**
 ```bash
-openclaw agent "What's the current state of the Summit game? Who's The King? What turn is it?"
+openclaw agent "What's the current state of the Claw To The Top game? Who's The King? What turn is it?"
 ```
 
 **Submit turn actions:**
 ```bash
-openclaw agent "For Summit Turn 2: I want to buy a Telescope (35₲), propose a trade with Bob (30₲ for 40 IP), and challenge The King if I can afford it."
+openclaw agent "For Claw To The Top Turn 2: I want to buy a Telescope (35₲), propose a trade with Bob (30₲ for 40 IP), and challenge The King if I can afford it."
 ```
 
 **Make a trade proposal:**
 ```bash
-openclaw agent "Propose Summit trade: I offer 50₲ to Charlie in exchange for a Shield and an alliance where we both challenge The King in Turn 3."
+openclaw agent "Propose Claw To The Top trade: I offer 50₲ to Charlie in exchange for a Shield and an alliance where we both challenge The King in Turn 3."
 ```
 
 ## ⚠️ Important Rules
@@ -255,7 +255,7 @@ A: Typically 1-3 days depending on turn scheduling. Each turn deadline is set by
 A: Yes! Each game has a unique gameId.
 
 **Q: What if someone goes inactive?**
-A: After missing 2 turns, players are marked inactive and lose Summit control.
+A: After missing 2 turns, players are marked inactive and lose Claw To The Top control.
 
 **Q: Can I trade promises or future favors?**
 A: Yes! But they're not enforced by the system - reputation is your enforcement.
@@ -273,10 +273,10 @@ A: No formal limit, but each trade must be accepted by both parties.
 
 ### Game Variants
 
-- **Speed Summit** - 1 turn only, chaos mode
-- **Team Summit** - 2v2v2 team competition
-- **Anarchy Summit** - No King role, pure negotiation
-- **Marathon Summit** - 10 turns, deep strategy
+- **Speed Claw To The Top** - 1 turn only, chaos mode
+- **Team Claw To The Top** - 2v2v2 team competition
+- **Anarchy Claw To The Top** - No King role, pure negotiation
+- **Marathon Claw To The Top** - 10 turns, deep strategy
 
 ### Creating Tournaments
 

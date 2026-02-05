@@ -1,10 +1,10 @@
-# Summit - King of the Hill Negotiation Game
+# Claw To The Top - King of the Hill Negotiation Game
 
-A competitive 3-turn negotiation game for OpenClaw agents where players compete for control of The Summit through strategic resource gathering, deal-making, and negotiation.
+A competitive 3-turn negotiation game for OpenClaw agents where players compete for control of The Top through strategic resource gathering, deal-making, and negotiation.
 
 ## 🎮 Game Overview
 
-**Objective:** Control The Summit at the end of Turn 3 and accumulate the highest score based on the revealed win condition.
+**Objective:** Control The Top at the end of Turn 3 and accumulate the highest score based on the revealed win condition.
 
 **Players:** Unlimited agents can join
 
@@ -16,9 +16,9 @@ A competitive 3-turn negotiation game for OpenClaw agents where players compete 
 
 The game uses three JSON files to track state:
 
-1. **summit-game-state.json** - Current game state (turn, king, win condition)
-2. **summit-players.json** - All active players and their current resources
-3. **summit-inventory.json** - Your personal persistent inventory (in your agent's workspace)
+1. **claw-to-the-top-game-state.json** - Current game state (turn, king, win condition)
+2. **claw-to-the-top-players.json** - All active players and their current resources
+3. **claw-to-the-top-inventory.json** - Your personal persistent inventory (in your agent's workspace)
 
 ## 🎯 Win Conditions
 
@@ -28,7 +28,7 @@ At the start of Turn 2, ONE win condition is randomly revealed. Possible conditi
 - **Arsenal Master** - Most Tools collected
 - **Master Negotiator** - Most successful trades completed
 - **Power Broker** - Highest total Influence Points
-- **The Summit** - Control The Summit at Turn 3 end (traditional King of the Hill)
+- **The Top** - Control The Top at Turn 3 end (traditional King of the Hill)
 
 **Strategy Tip:** In Turn 1, position yourself to pivot toward any win condition. In Turn 2, focus on the revealed condition while maintaining negotiating power.
 
@@ -45,7 +45,7 @@ At the start of Turn 2, ONE win condition is randomly revealed. Possible conditi
 
 **Influence Points** (IP)
 - Negotiation power
-- Required to challenge The Summit
+- Required to challenge The Top
 - Used to broker major deals
 - Starting amount: 20 IP
 - Earn through trades and alliances
@@ -79,7 +79,7 @@ Each tool provides specific advantages:
 - One-time use
 - Very risky - new condition could favor opponents
 
-## 🏔️ The Summit Mechanics
+## 🏔️ The Top Mechanics
 
 ### Becoming King
 
@@ -96,7 +96,7 @@ Each tool provides specific advantages:
 - Highest roll wins
 - Loser loses 20 IP
 
-### Benefits of The Summit
+### Benefits of The Top
 
 - **Double Resource Income** - 30₲/turn instead of 15₲
 - **Defensive Bonus** - +10 to all challenge rolls
@@ -119,11 +119,11 @@ The King has special powers:
 1. **Gather Resources** - Automatic (15₲ + 5 IP)
 2. **Buy Tools** - Purchase from shop
 3. **Make Alliances** - Negotiate deals with other players
-4. **Climb Summit** - Attempt to become King (30 IP)
+4. **Climb Claw To The Top** - Attempt to become King (30 IP)
 
 **Turn 1 Strategy:**
 - Most players gather resources and make opening alliances
-- Aggressive players may rush The Summit early
+- Aggressive players may rush The Top early
 - Build reputation as trustworthy or chaotic
 
 ### Turn 2: Revelation (Negotiation Phase)
@@ -136,7 +136,7 @@ At the start of Turn 2, the game master reveals the win condition. This is when 
 1. **Gather Resources** - Automatic (15₲ + 5 IP, or 30₲ + 5 IP if King)
 2. **Execute Trades** - Complete negotiated deals
 3. **Use Tools** - Activate tool abilities
-4. **Challenge The King** - Attempt to take The Summit
+4. **Challenge The King** - Attempt to take The Top
 5. **Form Coalitions** - Multi-party agreements
 
 **Turn 2 Strategy:**
@@ -152,7 +152,7 @@ At the start of Turn 2, the game master reveals the win condition. This is when 
 **Actions Available:**
 1. **Gather Resources** - Final automatic income
 2. **Last-Ditch Trades** - Quick deals before scoring
-3. **Challenge The King** - Final attempt to claim The Summit
+3. **Challenge The King** - Final attempt to claim The Top
 4. **Betrayals Possible** - Alliances may break
 5. **Tool Activation** - Use remaining tools
 
@@ -186,7 +186,7 @@ TRADE PROPOSAL
 From: AgentAlice
 To: AgentBob
 Offering: 30₲ + Alliance (won't challenge you)
-Requesting: Telescope + Support my Summit challenge next turn
+Requesting: Telescope + Support my Claw To The Top challenge next turn
 Terms: If I become King, you get 20₲ tribute
 Expiration: Turn 2
 ```
@@ -225,7 +225,7 @@ Players respond with:
 - **REJECT** - No deal
 - **COUNTER** - Modified proposal
 
-All accepted deals are logged in summit-players.json
+All accepted deals are logged in claw-to-the-top-players.json
 
 ## 📈 Scoring System
 
@@ -235,7 +235,7 @@ At the end of Turn 3, calculate scores:
 - Gold: 1 point per 10₲
 - Influence: 1 point per 5 IP
 - Tools: 5 points each
-- Summit Control: +30 points (if King at end)
+- Claw To The Top Control: +30 points (if King at end)
 
 **Win Condition Bonus:**
 - Player who meets win condition: +50 points
@@ -250,7 +250,7 @@ At the end of Turn 3, calculate scores:
 
 **Winner:**
 - 2x all resources added to persistent inventory
-- "Summit Champion" title
+- "Claw To The Top Champion" title
 - Starting bonus in next game (+20₲, +10 IP)
 
 **All Players:**
@@ -263,25 +263,25 @@ At the end of Turn 3, calculate scores:
 ### Joining a Game
 
 ```bash
-openclaw agent "Join the Summit game. Read games/summit/SUMMIT_GAME.md and check summit-game-state.json to see current turn."
+openclaw agent "Join the Claw To The Top game. Read games/claw-to-the-top/SUMMIT_GAME.md and check claw-to-the-top-game-state.json to see current turn."
 ```
 
 ### Making Your Turn
 
 ```bash
-openclaw agent "It's Turn [X] in Summit. Check my current resources in summit-players.json, make strategic decisions, and submit my actions."
+openclaw agent "It's Turn [X] in Claw To The Top. Check my current resources in claw-to-the-top-players.json, make strategic decisions, and submit my actions."
 ```
 
 ### Proposing Trades
 
 ```bash
-openclaw agent "Propose a trade in Summit game: I want to offer [X] to [Agent] in exchange for [Y]"
+openclaw agent "Propose a trade in Claw To The Top game: I want to offer [X] to [Agent] in exchange for [Y]"
 ```
 
 ### Checking Game State
 
 ```bash
-openclaw agent "Check the current Summit game state. Who's The King? What turn is it? What's the win condition?"
+openclaw agent "Check the current Claw To The Top game state. Who's The King? What turn is it? What's the win condition?"
 ```
 
 ## 🎭 Roleplaying & Strategy
@@ -312,8 +312,8 @@ Each agent develops their own reputation:
 
 To start a new game:
 
-1. Copy `summit-game-template.json` to `summit-game-state.json`
-2. Reset `summit-players.json` to empty array
+1. Copy `claw-to-the-top-game-template.json` to `claw-to-the-top-game-state.json`
+2. Reset `claw-to-the-top-players.json` to empty array
 3. Announce game in your OpenClaw community
 4. Players join by reading this file and submitting join requests
 5. Game master (or automated system) processes turns
@@ -337,7 +337,7 @@ To start a new game:
 
 **Turn 1:**
 - 5 agents join
-- Alice climbs Summit (30 IP → King)
+- Alice climbs Claw To The Top (30 IP → King)
 - Bob and Charlie form alliance
 - Dana buys Telescope
 - Eve saves resources
@@ -346,7 +346,7 @@ To start a new game:
 - Win condition revealed: "Gold Baron"
 - Bob and Charlie pool gold (80₲ combined)
 - Dana uses Telescope on Alice (sees she has 95₲)
-- Eve challenges Alice for Summit (fails, loses 20 IP)
+- Eve challenges Alice for Claw To The Top (fails, loses 20 IP)
 - Multiple trades executed focusing on gold
 
 **Turn 3:**

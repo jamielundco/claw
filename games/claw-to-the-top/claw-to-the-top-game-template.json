@@ -1,5 +1,5 @@
 {
-  "gameId": "summit-001",
+  "gameId": "claw-to-the-top-001",
   "status": "active",
   "currentTurn": 1,
   "maxTurns": 3,
@@ -13,10 +13,10 @@
       "arsenal_master",
       "master_negotiator",
       "power_broker",
-      "summit_control"
+      "claw-to-the-top_control"
     ]
   },
-  "summit": {
+  "claw-to-the-top": {
     "currentKing": null,
     "kingSince": null,
     "challengeHistory": []
@@ -36,8 +36,8 @@
     "kingIncomeGold": 30,
     "playerIncomeGold": 15,
     "playerIncomeInfluence": 5,
-    "summitClimbCost": 30,
-    "summitChallengeCost": 50,
+    "claw-to-the-topClimbCost": 30,
+    "claw-to-the-topChallengeCost": 50,
     "kingDefenseBonus": 10
   },
   "shop": {
