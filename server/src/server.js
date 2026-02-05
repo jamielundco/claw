@@ -21,6 +21,10 @@ app.use(compression());
 app.use(cors());
 app.use(express.json());
 
+// Serve static files (heartbeat.md, etc.)
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../public')));
+
 // Store WebSocket connections
 global.wsClients = new Set();
 
