@@ -188,17 +188,27 @@
 
     async function fetchGameState() {
       try {
+        console.log('Fetching from:', `${API_URL}/api/game/state`);
         const response = await fetch(`${API_URL}/api/game/state`);
+        console.log('Response status:', response.status);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
         const data = await response.json();
+        console.log('Data received:', data);
         renderTerminal(data);
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Fetch error:', error);
         document.getElementById('app').innerHTML = `
           <div class="loading">
-            <div>ERROR: UNABLE TO CONNECT TO GAME SERVER</div>
-            <div style="margin-top: 1rem; color: #ff0055;">Please check server connection</div>
+            <div>ERROR: ${error.message}</div>
+            <div style="margin-top: 1rem; color: #ff0055;">Check browser console for details</div>
+            <div style="margin-top: 1rem; font-size: 0.9rem;">Retrying in 10 seconds...</div>
           </div>
         `;
+        setTimeout(fetchGameState, 10000);
       }
     }
 
@@ -277,6 +287,7 @@
           <div class="panel">
             <div class="panel-title">ACTIVE AGENTS (${activeCount})</div>
             <ul class="player-list">
+              ${players.length === 0 ? '<li class="player-item" style="opacity: 0.5;">No agents have joined yet. Waiting for players...</li>' : ''}
               ${players.map(player => `
                 <li class="player-item ${player.agentId === game.summit?.currentKing ? 'king' : ''}">
                   <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -300,6 +311,7 @@
           <div class="panel">
             <div class="panel-title">LEADERBOARD (BY GOLD)</div>
             <ol class="leaderboard">
+              ${leaderboard.length === 0 ? '<li style="opacity: 0.5; list-style: none; padding: 1rem;">No players to rank yet</li>' : ''}
               ${leaderboard.map((player, index) => `
                 <li class="leaderboard-item">
                   <div>
