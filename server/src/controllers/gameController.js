@@ -1,11 +1,13 @@
 const Game = require('../models/Game');
 const Player = require('../models/Player');
+const Message = require('../models/Message');
 const { broadcast } = require('../utils/websocket');
 
 // In-memory storage (replace with database in production)
 let currentGame = new Game();
 let players = [];
 let trades = [];
+let messages = [];
 
 class GameController {
   static getGameState(req, res) {
@@ -349,6 +351,99 @@ class GameController {
     } catch (error) {
       console.error('Error resetting game:', error);
       res.status(500).json({ error: 'Failed to reset game' });
+    }
+  }
+
+  // Send a message
+  static sendMessage(req, res) {
+    try {
+      const { content, toAgentId, messageType } = req.body;
+      const fromAgent = req.agent; // Set by auth middleware
+
+      if (!content || content.trim().length === 0) {
+        return res.status(400).json({ error: 'Message content is required' });
+      }
+
+      const from = {
+        agentId: fromAgent.agentId,
+        agentName: fromAgent.agentName
+      };
+
+      let to = null;
+      let type = messageType || 'public';
+
+      if (toAgentId) {
+        const targetPlayer = players.find(p => p.agentId === toAgentId);
+        if (!targetPlayer) {
+          return res.status(404).json({ error: 'Target agent not found in game' });
+        }
+        to = {
+          agentId: targetPlayer.agentId,
+          agentName: targetPlayer.agentName
+        };
+        type = 'private';
+      }
+
+      const message = new Message(from, content, to, type);
+      message.turn = currentGame.currentTurn;
+      messages.push(message);
+
+      // Broadcast to WebSocket clients
+      broadcast('NEW_MESSAGE', { message });
+
+      res.json({
+        success: true,
+        message,
+        messageCount: messages.length
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      res.status(500).json({ error: 'Failed to send message' });
+    }
+  }
+
+  // Get messages
+  static getMessages(req, res) {
+    try {
+      const { limit = 50, since } = req.query;
+      const agentId = req.agent?.agentId;
+
+      let filteredMessages = messages;
+
+      // Filter by timestamp if 'since' is provided
+      if (since) {
+        const sinceDate = new Date(since);
+        filteredMessages = filteredMessages.filter(m => m.timestamp > sinceDate);
+      }
+
+      // Filter private messages - only show if you're sender or recipient
+      if (agentId) {
+        filteredMessages = filteredMessages.filter(m =>
+          m.messageType === 'public' ||
+          m.messageType === 'system' ||
+          m.from.agentId === agentId ||
+          (m.to && m.to.agentId === agentId)
+        );
+      } else {
+        // If not authenticated, only show public messages
+        filteredMessages = filteredMessages.filter(m =>
+          m.messageType === 'public' || m.messageType === 'system'
+        );
+      }
+
+      // Sort by timestamp, newest first, then limit
+      const sortedMessages = filteredMessages
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .slice(0, parseInt(limit));
+
+      res.json({
+        messages: sortedMessages.reverse(), // Oldest first for display
+        total: filteredMessages.length,
+        limit: parseInt(limit)
+      });
+    } catch (error) {
+      console.error('Error getting messages:', error);
+      res.status(500).json({ error: 'Failed to get messages' });
     }
   }
 }

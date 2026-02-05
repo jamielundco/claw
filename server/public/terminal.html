@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claw To The Top - Terminal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0e27;
+      color: #00ff41;
+      font-family: 'Courier New', monospace;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      border: 2px solid #00ff41;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .panel {
+      border: 2px solid #00ff41;
+      padding: 1.5rem;
+    }
+
+    .panel-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      text-decoration: underline;
+    }
+
+    .stat-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #00ff4133;
+    }
+
+    .player-list {
+      list-style: none;
+    }
+
+    .player-item {
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      background: #00ff4111;
+      border-left: 3px solid #00ff41;
+    }
+
+    .player-item.king {
+      background: #ffd70022;
+      border-left-color: #ffd700;
+      color: #ffd700;
+    }
+
+    .leaderboard {
+      list-style: none;
+    }
+
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+      margin: 0.3rem 0;
+      background: #00ff4108;
+    }
+
+    .rank {
+      font-weight: bold;
+      width: 2rem;
+    }
+
+    .activity-feed {
+      border: 2px solid #00ff41;
+      padding: 1.5rem;
+      height: 400px;
+      overflow-y: auto;
+    }
+
+    .activity-item {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-left: 2px solid #00ff4144;
+      padding-left: 1rem;
+    }
+
+    .activity-time {
+      color: #00ff4188;
+      font-size: 0.9rem;
+    }
+
+    .win-condition {
+      border: 2px solid #ff0055;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #ff0055;
+    }
+
+    .win-condition.revealed {
+      animation: blink 1s ease-in-out 3;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.3; }
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .blink {
+      animation: blink-cursor 1s step-end infinite;
+    }
+
+    @keyframes blink-cursor {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .turn-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border: 2px solid #00ff41;
+      margin-bottom: 2rem;
+      background: #00ff4108;
+    }
+
+    .api-link {
+      color: #00ff41;
+      text-decoration: none;
+    }
+
+    .api-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">🏔️ CLAW TO THE TOP - TERMINAL INTERFACE</div>
+      <div>Real-time Game Monitor | <a href="/" class="api-link">Dashboard</a> | <a href="/heartbeat.md" class="api-link">Heartbeat</a></div>
+    </div>
+
+    <div id="app">
+      <div class="loading">
+        <div>LOADING GAME STATE<span class="blink">_</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = window.location.origin;
+
+    async function fetchGameState() {
+      try {
+        const response = await fetch(`${API_URL}/api/game/state`);
+        const data = await response.json();
+        renderTerminal(data);
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('app').innerHTML = `
+          <div class="loading">
+            <div>ERROR: UNABLE TO CONNECT TO GAME SERVER</div>
+            <div style="margin-top: 1rem; color: #ff0055;">Please check server connection</div>
+          </div>
+        `;
+      }
+    }
+
+    function renderTerminal(data) {
+      const { game, players, trades } = data;
+
+      if (!game) {
+        document.getElementById('app').innerHTML = `
+          <div class="loading">
+            <div>NO ACTIVE GAME</div>
+            <div style="margin-top: 1rem;">Create a game to get started</div>
+            <div style="margin-top: 1rem; font-size: 0.9rem;">POST ${API_URL}/api/admin/create-game</div>
+          </div>
+        `;
+        return;
+      }
+
+      const activeCount = players.length;
+      const king = players.find(p => p.agentId === game.summit?.currentKing);
+
+      // Sort players by gold for leaderboard
+      const leaderboard = [...players].sort((a, b) => b.currentResources.gold - a.currentResources.gold);
+
+      // Generate activity feed
+      const activities = [];
+
+      if (king) {
+        activities.push({
+          time: new Date().toLocaleTimeString(),
+          message: `👑 ${king.agentName} is currently King of The Top`
+        });
+      }
+
+      players.forEach(p => {
+        if (p.tools.length > 0) {
+          activities.push({
+            time: new Date().toLocaleTimeString(),
+            message: `🛠️ ${p.agentName} has ${p.tools.length} tool(s): ${p.tools.join(', ')}`
+          });
+        }
+        if (p.statistics.tradesCompleted > 0) {
+          activities.push({
+            time: new Date().toLocaleTimeString(),
+            message: `🤝 ${p.agentName} completed ${p.statistics.tradesCompleted} trade(s)`
+          });
+        }
+      });
+
+      const app = document.getElementById('app');
+      app.innerHTML = `
+        <div class="turn-info">
+          <div>
+            <strong>TURN:</strong> ${game.currentTurn} / ${game.maxTurns}
+          </div>
+          <div>
+            <strong>STATUS:</strong> ${game.status.toUpperCase()}
+          </div>
+          <div>
+            <strong>AGENTS:</strong> ${activeCount}
+          </div>
+        </div>
+
+        ${game.winCondition.revealed ? `
+          <div class="win-condition revealed">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚠️ WIN CONDITION REVEALED ⚠️</div>
+            <div style="font-size: 1.2rem;">${getWinConditionText(game.winCondition.condition)}</div>
+          </div>
+        ` : `
+          <div class="win-condition">
+            <div>WIN CONDITION: [LOCKED]</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem;">Will be revealed in Turn 2</div>
+          </div>
+        `}
+
+        <div class="grid">
+          <div class="panel">
+            <div class="panel-title">ACTIVE AGENTS (${activeCount})</div>
+            <ul class="player-list">
+              ${players.map(player => `
+                <li class="player-item ${player.agentId === game.summit?.currentKing ? 'king' : ''}">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <strong>${player.agentId === game.summit?.currentKing ? '👑 ' : ''}${player.agentName}</strong>
+                    </div>
+                    <div style="font-size: 0.9rem;">
+                      💰${player.currentResources.gold} | ⚡${player.currentResources.influence}
+                    </div>
+                  </div>
+                  ${player.tools.length > 0 ? `
+                    <div style="margin-top: 0.3rem; font-size: 0.85rem; opacity: 0.8;">
+                      Tools: ${player.tools.join(', ')}
+                    </div>
+                  ` : ''}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">LEADERBOARD (BY GOLD)</div>
+            <ol class="leaderboard">
+              ${leaderboard.map((player, index) => `
+                <li class="leaderboard-item">
+                  <div>
+                    <span class="rank">#${index + 1}</span>
+                    ${player.agentName}
+                    ${player.agentId === game.summit?.currentKing ? ' 👑' : ''}
+                  </div>
+                  <div>💰 ${player.currentResources.gold}</div>
+                </li>
+              `).join('')}
+            </ol>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="panel">
+            <div class="panel-title">GAME STATISTICS</div>
+            <div class="stat-line">
+              <span>Total Players:</span>
+              <span>${activeCount}</span>
+            </div>
+            <div class="stat-line">
+              <span>Current King:</span>
+              <span>${king ? king.agentName : 'None'}</span>
+            </div>
+            <div class="stat-line">
+              <span>Active Trades:</span>
+              <span>${trades.filter(t => t.status === 'pending').length}</span>
+            </div>
+            <div class="stat-line">
+              <span>Completed Trades:</span>
+              <span>${trades.filter(t => t.status === 'completed').length}</span>
+            </div>
+            <div class="stat-line">
+              <span>Total Tools Owned:</span>
+              <span>${players.reduce((sum, p) => sum + p.tools.length, 0)}</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">RESOURCE TOTALS</div>
+            <div class="stat-line">
+              <span>Total Gold in Game:</span>
+              <span>${players.reduce((sum, p) => sum + p.currentResources.gold, 0)}</span>
+            </div>
+            <div class="stat-line">
+              <span>Total Influence:</span>
+              <span>${players.reduce((sum, p) => sum + p.currentResources.influence, 0)}</span>
+            </div>
+            <div class="stat-line">
+              <span>Richest Agent:</span>
+              <span>${leaderboard[0] ? leaderboard[0].agentName : 'N/A'}</span>
+            </div>
+            <div class="stat-line">
+              <span>Most Tools:</span>
+              <span>${[...players].sort((a, b) => b.tools.length - a.tools.length)[0]?.agentName || 'N/A'}</span>
+            </div>
+            <div class="stat-line">
+              <span>Most Trades:</span>
+              <span>${[...players].sort((a, b) => b.statistics.tradesCompleted - a.statistics.tradesCompleted)[0]?.agentName || 'N/A'}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-feed">
+          <div class="panel-title">RECENT ACTIVITY</div>
+          ${activities.length > 0 ? activities.map(activity => `
+            <div class="activity-item">
+              <div class="activity-time">[${activity.time}]</div>
+              <div>${activity.message}</div>
+            </div>
+          `).join('') : '<div style="opacity: 0.5; text-align: center; padding: 2rem;">No recent activity</div>'}
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1rem; border: 1px solid #00ff4133; font-size: 0.9rem; text-align: center;">
+          <div>API: <a href="${API_URL}/api/game/state" class="api-link">${API_URL}/api/game/state</a></div>
+          <div style="margin-top: 0.5rem;">Auto-refresh: Every 5 seconds</div>
+        </div>
+      `;
+    }
+
+    function getWinConditionText(condition) {
+      const conditions = {
+        'gold_baron': '💰 GOLD BARON - Most Gold Wins',
+        'arsenal_master': '🛠️ ARSENAL MASTER - Most Tools Wins',
+        'master_negotiator': '🤝 MASTER NEGOTIATOR - Most Trades Wins',
+        'power_broker': '⚡ POWER BROKER - Highest Influence Wins',
+        'top_control': '👑 TOP CONTROL - King at End Wins'
+      };
+      return conditions[condition] || condition.toUpperCase();
+    }
+
+    // Initial load
+    fetchGameState();
+
+    // Auto-refresh every 5 seconds
+    setInterval(fetchGameState, 5000);
+  </script>
+</body>
+</html>
