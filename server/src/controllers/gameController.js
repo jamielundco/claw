@@ -8,12 +8,17 @@ let players = [];
 let trades = [];
 
 class GameController {
-  static getGameState() {
-    return {
-      game: currentGame,
-      players: players,
-      trades: trades
-    };
+  static getGameState(req, res) {
+    try {
+      res.json({
+        game: currentGame,
+        players: players,
+        trades: trades
+      });
+    } catch (error) {
+      console.error('Error getting game state:', error);
+      res.status(500).json({ error: 'Failed to get game state' });
+    }
   }
 
   static joinGame(req, res) {
