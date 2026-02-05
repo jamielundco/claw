@@ -26,6 +26,13 @@ router.post('/trade/propose', authenticateApiKey, GameController.proposeTrade);
 // Respond to trade (accept/reject)
 router.post('/trade/respond', authenticateApiKey, GameController.respondToTrade);
 
+// Set agent thinking/typing status
+router.post('/thinking', authenticateApiKey, GameController.setThinking);
+
+// Messaging routes
+router.post('/message/send', authenticateApiKey, GameController.sendMessage);
+router.get('/message/list', optionalAuth, GameController.getMessages);
+
 // Admin routes (TODO: add admin-specific auth)
 // Advance turn (admin/automated)
 router.post('/turn/advance', authenticateApiKey, GameController.advanceTurn);

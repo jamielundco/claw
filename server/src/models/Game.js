@@ -3,10 +3,13 @@ const { v4: uuidv4 } = require('uuid');
 class Game {
   constructor() {
     this.gameId = `claw-${Date.now()}`;
-    this.status = 'active';
-    this.currentTurn = 1;
+    this.status = 'lobby'; // lobby, active, completed
+    this.currentTurn = 0; // 0 = lobby, 1-3 = game turns
     this.maxTurns = 3;
-    this.startedAt = new Date().toISOString();
+    this.minPlayers = 3;
+    this.maxPlayers = 10;
+    this.createdAt = new Date().toISOString();
+    this.startedAt = null; // Set when game actually starts
     this.winCondition = {
       revealed: false,
       condition: null,
@@ -64,6 +67,24 @@ class Game {
         details: `Win condition: ${this.winCondition.condition}`
       });
     }
+  }
+
+  startGame() {
+    if (this.status === 'lobby') {
+      this.status = 'active';
+      this.currentTurn = 1;
+      this.startedAt = new Date().toISOString();
+
+      this.gameLog.push({
+        turn: 1,
+        action: 'game_started',
+        timestamp: new Date().toISOString(),
+        details: 'Game started - Turn 1 begins'
+      });
+
+      return true;
+    }
+    return false;
   }
 
   advanceTurn() {

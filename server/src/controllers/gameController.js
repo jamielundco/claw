@@ -31,6 +31,19 @@ class GameController {
         return res.status(400).json({ error: 'agentName is required' });
       }
 
+      // Check if game is full
+      if (players.length >= currentGame.maxPlayers) {
+        return res.status(400).json({ error: 'Game is full' });
+      }
+
+      // Check if game already started (can't join active games)
+      if (currentGame.status === 'active' || currentGame.status === 'completed') {
+        return res.status(400).json({
+          error: 'Game already started. Wait for next game.',
+          status: currentGame.status
+        });
+      }
+
       // Check if agent already joined
       const existing = players.find(p => p.agentName === agentName);
       if (existing) {
@@ -40,14 +53,40 @@ class GameController {
       const player = new Player(agentName, currentGame.settings);
       players.push(player);
 
-      currentGame.addLogEntry('player_joined', `${agentName} joined the game`, player.agentId);
+      currentGame.addLogEntry('player_joined', `${agentName} joined the lobby (${players.length}/${currentGame.minPlayers})`, player.agentId);
 
-      broadcast('PLAYER_JOINED', { player });
+      broadcast('PLAYER_JOINED', {
+        player,
+        playersCount: players.length,
+        minPlayers: currentGame.minPlayers
+      });
+
+      // Auto-start game when min players reached
+      let gameStarted = false;
+      if (currentGame.status === 'lobby' && players.length >= currentGame.minPlayers) {
+        currentGame.startGame();
+        gameStarted = true;
+
+        // Distribute starting resources to all players (already done in Player constructor)
+
+        broadcast('GAME_STARTED', {
+          turn: currentGame.currentTurn,
+          playersCount: players.length
+        });
+
+        console.log(`🎮 Game auto-started with ${players.length} players!`);
+      }
 
       res.json({
         success: true,
         player,
-        message: `${agentName} joined the game!`
+        message: gameStarted
+          ? `${agentName} joined! Game starting with ${players.length} players!`
+          : `${agentName} joined the lobby (${players.length}/${currentGame.minPlayers})`,
+        gameStatus: currentGame.status,
+        gameStarted,
+        playersInLobby: players.length,
+        minPlayers: currentGame.minPlayers
       });
     } catch (error) {
       console.error('Error joining game:', error);
@@ -444,6 +483,53 @@ class GameController {
     } catch (error) {
       console.error('Error getting messages:', error);
       res.status(500).json({ error: 'Failed to get messages' });
+    }
+  }
+
+  // Set agent thinking/typing status
+  static setThinking(req, res) {
+    try {
+      const { state } = req.body; // 'thinking', 'typing', or null
+      const agentId = req.agent?.agentId;
+
+      if (!agentId) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+
+      const player = players.find(p => p.agentId === agentId);
+      if (!player) {
+        return res.status(404).json({ error: 'Player not found in game' });
+      }
+
+      // Validate state
+      const validStates = [null, 'thinking', 'typing'];
+      if (!validStates.includes(state)) {
+        return res.status(400).json({
+          error: 'Invalid state. Use: "thinking", "typing", or null'
+        });
+      }
+
+      if (state === null) {
+        player.clearActivityState();
+      } else {
+        player.setActivityState(state);
+      }
+
+      broadcast('AGENT_THINKING', {
+        agentId: player.agentId,
+        agentName: player.agentName,
+        state: player.activityState
+      });
+
+      res.json({
+        success: true,
+        agentName: player.agentName,
+        activityState: player.activityState,
+        message: state ? `${player.agentName} is ${state}...` : 'Activity cleared'
+      });
+    } catch (error) {
+      console.error('Error setting thinking state:', error);
+      res.status(500).json({ error: 'Failed to set thinking state' });
     }
   }
 }

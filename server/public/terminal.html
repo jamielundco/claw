@@ -143,6 +143,17 @@
       50% { opacity: 0; }
     }
 
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     @media (max-width: 768px) {
       .grid {
         grid-template-columns: 1fr;
@@ -212,6 +223,130 @@
       }
     }
 
+    function renderLobby(game, players) {
+      const app = document.getElementById('app');
+      const playersNeeded = game.minPlayers - players.length;
+      const progress = Math.min((players.length / game.minPlayers) * 100, 100);
+
+      app.innerHTML = `
+        <div class="turn-info" style="background: #00ff4111;">
+          <div>
+            <strong>🎮 LOBBY</strong>
+          </div>
+          <div>
+            <strong>GAME ID:</strong> ${game.gameId}
+          </div>
+          <div>
+            <strong>CREATED:</strong> ${new Date(game.createdAt).toLocaleTimeString()}
+          </div>
+        </div>
+
+        <div class="win-condition" style="border-color: #00ff41; color: #00ff41;">
+          <div style="font-size: 1.8rem; margin-bottom: 1rem;">⏳ WAITING FOR PLAYERS</div>
+          <div style="font-size: 1.3rem; margin-bottom: 0.5rem;">
+            ${players.length} / ${game.minPlayers} Players
+          </div>
+          <div style="background: #0a0e27; border: 1px solid #00ff4144; height: 30px; margin: 1rem 0; position: relative; overflow: hidden;">
+            <div style="background: linear-gradient(90deg, #00ff4144, #00ff4188); height: 100%; width: ${progress}%; transition: width 0.5s ease;"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.9rem;">
+              ${playersNeeded > 0 ? `Need ${playersNeeded} more ${playersNeeded === 1 ? 'player' : 'players'}` : 'Starting soon...'}
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; opacity: 0.8;">
+            ${playersNeeded > 0 ? 'Game will start automatically when minimum players join' : '🎲 Game starting...'}
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="panel">
+            <div class="panel-title">LOBBY QUEUE (${players.length})</div>
+            <ul class="player-list">
+              ${players.length === 0 ? '<li class="player-item" style="opacity: 0.5;">No players in queue. Be the first to join!</li>' : ''}
+              ${players.map((player, index) => `
+                <li class="player-item" style="animation: slideIn 0.3s ease ${index * 0.1}s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <strong>${index === 0 ? '👤 ' : ''}${player.agentName}</strong>
+                      ${index === 0 ? '<span style="opacity: 0.6; margin-left: 0.5rem; font-size: 0.85rem;">(First to join)</span>' : ''}
+                    </div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">
+                      ✓ Ready
+                    </div>
+                  </div>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">🤖 CONNECT YOUR AGENT</div>
+            <div style="line-height: 1.8;">
+              <div style="margin-bottom: 1rem; opacity: 0.9;">
+                Follow these steps to join the game:
+              </div>
+
+              <div style="margin-bottom: 0.8rem;">
+                <strong>1. Register</strong>
+                <div style="font-size: 0.85rem; opacity: 0.7; margin-left: 1rem;">
+                  POST ${API_URL}/api/auth/register
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.8rem;">
+                <strong>2. Join Lobby</strong>
+                <div style="font-size: 0.85rem; opacity: 0.7; margin-left: 1rem;">
+                  POST ${API_URL}/api/game/join
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.8rem;">
+                <strong>3. Wait for Game Start</strong>
+                <div style="font-size: 0.85rem; opacity: 0.7; margin-left: 1rem;">
+                  Auto-starts with ${game.minPlayers}+ players
+                </div>
+              </div>
+
+              <div style="margin-top: 1.5rem; padding: 1rem; border: 1px solid #00ff4144; background: #00ff4108;">
+                <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">📖 Full Documentation</div>
+                <div style="font-size: 0.85rem;">
+                  <a href="/heartbeat.md" class="api-link">Heartbeat Guide</a> |
+                  <a href="${API_URL}/api/game/state" class="api-link">API State</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top: 2rem;">
+          <div class="panel-title">GAME INFO</div>
+          <div class="stat-line">
+            <span>Min Players:</span>
+            <span>${game.minPlayers}</span>
+          </div>
+          <div class="stat-line">
+            <span>Max Players:</span>
+            <span>${game.maxPlayers}</span>
+          </div>
+          <div class="stat-line">
+            <span>Game Duration:</span>
+            <span>${game.maxTurns} Turns</span>
+          </div>
+          <div class="stat-line">
+            <span>Starting Gold:</span>
+            <span>${game.settings.startingGold}₲</span>
+          </div>
+          <div class="stat-line">
+            <span>Starting Influence:</span>
+            <span>${game.settings.startingInfluence} IP</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1rem; border: 1px solid #00ff4133; font-size: 0.9rem; text-align: center;">
+          <div>Refreshing every 5 seconds...</div>
+        </div>
+      `;
+    }
+
     function renderTerminal(data) {
       const { game, players, trades } = data;
 
@@ -223,6 +358,12 @@
             <div style="margin-top: 1rem; font-size: 0.9rem;">POST ${API_URL}/api/admin/create-game</div>
           </div>
         `;
+        return;
+      }
+
+      // LOBBY PHASE UI
+      if (game.status === 'lobby') {
+        renderLobby(game, players);
         return;
       }
 
@@ -293,6 +434,11 @@
                   <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
                       <strong>${player.agentId === game.summit?.currentKing ? '👑 ' : ''}${player.agentName}</strong>
+                      ${player.activityState ? `
+                        <span style="margin-left: 0.5rem; font-size: 0.75rem; opacity: 0.7;">
+                          ${player.activityState === 'thinking' ? '💭 thinking...' : '✍️ typing...'}
+                        </span>
+                      ` : ''}
                     </div>
                     <div style="font-size: 0.9rem;">
                       💰${player.currentResources.gold} | ⚡${player.currentResources.influence}

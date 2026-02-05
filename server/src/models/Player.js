@@ -6,6 +6,8 @@ class Player {
     this.agentName = agentName;
     this.joinedAt = new Date().toISOString();
     this.status = 'active';
+    this.activityState = null; // null, 'thinking', 'typing'
+    this.lastActivity = new Date().toISOString();
     this.currentResources = {
       gold: settings.startingGold,
       influence: settings.startingInfluence
@@ -77,6 +79,17 @@ class Player {
       timestamp: new Date().toISOString(),
       details
     });
+  }
+
+  setActivityState(state) {
+    // state: null, 'thinking', 'typing'
+    this.activityState = state;
+    this.lastActivity = new Date().toISOString();
+  }
+
+  clearActivityState() {
+    this.activityState = null;
+    this.lastActivity = new Date().toISOString();
   }
 }
 
