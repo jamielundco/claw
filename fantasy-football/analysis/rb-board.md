@@ -11,31 +11,27 @@ Your clean bye weeks: **5, 9, 10, 12, 13, 14**. Avoid **6, 7, 11**.
 
 Two backs, both uncertain, three RB-capable slots.
 
-## 1. Jaylen Warren — Pittsburgh — bye 9
+## ~~Jaylen Warren~~ — TAKEN
 
-**The pick.** The Pittsburgh deduction was right and this is the name: only
-Rico Dowdle is owned in your league, and Warren is listed **ahead of him**
-on the Steelers' 2026 depth chart. Coming off a career-best 952 rushing
-yards.
+Was the top target. Gone.
 
-- Listed RB1 on his own team, with no high draft pick behind him
-- Production already proven, not projected
-- Bye 9 — you lose nobody that week
-- Diversifies you into a second backfield
+## 1. Tyler Allgeier — Arizona — bye 14
 
-## 2. Tyler Allgeier — Arizona — bye 14
+**The pick, and Warren leaving makes it clearer, not weaker.**
 
-Listed **RB1 ahead of Love** on Arizona's current depth chart. Conner is
-third, Benson fourth.
+- **Love is "about 50/50" to play Week 1** (Mike Garafolo, NFL Network).
+  You own Love. Allgeier is the direct hedge.
+- Allgeier is trending toward being Arizona's **primary back to open the
+  season**, and is a lock-in flex play Week 1 regardless of Love's status.
+- Beat reporting says the two will **split RB1 duties even once Love is
+  healthy** — so this isn't a handcuff that evaporates, it's a standing
+  share of a real backfield.
+- Bye 14 — your emptiest week.
+- Zero Arizona RBs are owned anywhere in your league. You'd hold the whole
+  backfield and win either way the split breaks.
 
-Strong case for taking him first: Love's high-ankle sprain is the kind that
-lingers, and if Love misses time Allgeier is the Cardinals' lead back. No
-one in your league owns a single Arizona running back, so you'd have the
-whole backfield locked up.
-
-Reason he's second: he insures a player you already own rather than adding
-an independent starter, and his role shrinks the moment Love is healthy.
-You need a third real back more than you need a hedge.
+Without him, your Week 1 backfield is Aaron Jones (7% started) and a rookie
+who's a coin flip to suit up.
 
 ## 3. Tony Pollard — Tennessee — bye 9
 
