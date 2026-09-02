@@ -1,101 +1,107 @@
-# League Analysis — 5 of ~14 teams
+# League Analysis — O sucks the ref — all 14 teams
 
-## Correction to the earlier read
+## Two corrections to earlier drafts of this analysis
 
-I previously called your 8 open roster spots "real ammunition" on the
-assumption most teams draft full. They don't here — **every team has
-exactly 9 players and 8 open spots.** The draft was 9 rounds league-wide.
-Open spots are the baseline, not an advantage. The advantage is elsewhere,
-and it's better.
+1. **Open roster spots are not an advantage.** Every team has exactly 9
+   players and 8 open spots. The draft was 9 rounds league-wide. That's the
+   baseline, not an edge.
 
-## The headline: Week 1 is winnable
+2. **The empty K/DEF slots are not an exploitable edge.** An earlier version
+   of this made a lot of "nobody has a kicker, take free points" — that was
+   wrong. It's early September. Every manager will fill K and DEF and set a
+   lineup before kickoff. The 0.00 projections are unfinished chores, not
+   inattention to farm.
 
-Quinn's One Particular Q-DO is an A+ roster and projects 75.63. But that
-number comes from **seven** starters. His K and DEF slots are empty and
-scoring zero.
+What's left after removing those is the real picture, and it's harder.
 
-Nobody in this league has a defense. Only Buc-ee has a kicker, and it's on
-his bench.
+## Where The Last Blanche actually stands
 
-So the matchup isn't F-grade vs A+-grade. It's:
+Bottom three by talent. The F grade is fair.
 
-| | The Last Blanche | One Particular Q-DO |
+| Team | Grade | Top-end talent |
 |---|---|---|
-| Starters filled | 0 of 9 | 7 of 9 |
-| K | empty | empty |
-| DEF | empty | empty |
-| Projected | 0.00 | 75.63 |
+| The Last Durak | A+ | Josh Allen, McCaffrey, Barkley, Jefferson |
+| Any good beer in IA? | A+ | Gibbs, Achane, Lamb, Javonte Williams |
+| Tijuana Hotdog | A+ | Bijan, Kenneth Walker, Nacua |
+| One Particular Q-DO | A+ | Jonathan Taylor, James Cook, JSN |
+| Heir Jordan | B- | Chase, Bowers, Breece Hall |
+| LaPorta Potties | B+ | Derrick Henry, Hampton, Waddle, Higgins |
+| Purdy Party | C+ | Kyren Williams, Nico Collins, McBride |
+| FC Dumpster Fire | C | Lamar Jackson, A.J. Brown, Etienne |
+| Show Us Your TDs | C- | Hurts, Jeanty, DeVonta, Nabers |
+| All of CJ's T-Shirts | D | Burrow, Rashee Rice, Flowers |
+| Buc-ee | D- | Amon-Ra St. Brown, Garrett Wilson |
+| Briar Steffenhagen | D- | Drake Maye, Swift, Jacobs |
+| Tuten Brown is the The Shart | F | Chase Brown, McMillan |
+| **The Last Blanche** | **F** | **Drake London, Jayden Daniels** |
 
-If you set your lineup and fill RB2, K, and DEF off the wire, you're
-fielding nine scoring slots against his seven. Your six current starters
-are worse than his seven — but a startable kicker and defense are worth
-roughly 15 points between them, and he's taking a zero at both. That
-closes most of a talent gap you have no other way to close this week.
+You have two good players and a steep cliff behind them. Nobody else's
+roster looks like that.
 
-Doing nothing is a certain loss. Doing this is a coin flip.
+## The structural problem
 
-## Positional shape across the league
-
-RBs rostered per team: Q-DO 3, Beer in IA 3, CJ's T-Shirts 3, Buc-ee 2,
-**you 1.** You are the only single-RB team, and RB fills three of your
+**Running back.** 39 RBs are rostered across 14 teams — an average of 2.8.
+You have one. You are the only team below two, and RB fills three of your
 slots (RB, RB, FLEX).
 
-WRs rostered: **you 5**, everyone else 2–3. You're the league's WR hoarder.
+**Wide receiver.** You have 5, the most in the league. But four of them are
+Addison (11% started), Meyers (3%), Jeudy (1%), and Higgins (on IR). That's
+not depth, it's ballast.
 
-That looks like an obvious trade setup. It mostly isn't — see below.
+**Quarterback.** Two rostered in a one-QB league. Trevor Lawrence occupies a
+spot that produces nothing.
 
-## The trade market is dead right now
+So the roster is misshapen in three directions at once, and only London and
+Daniels have real trade value — and trading either just relocates the hole.
 
-Everyone is carrying 9 players with 2–3 RBs and three RB-capable slots.
-Nobody has surplus at running back because nobody has surplus at anything.
-Quinn starts both his good RBs; Jeff starts all three of his.
+## Two trades worth proposing
 
-And your WR "surplus" isn't tradeable. Addison (11% started), Meyers (3%),
-Jeudy (1%), Higgins (IR) have no market. Your only real assets are Drake
-London and Jayden Daniels, and trading either to fix RB just moves the
-hole.
+Both cost you nothing you're using.
 
-Revisit trades in 3–4 weeks once rosters fill out and someone has genuine
-excess. Two setups to watch:
+**1. Trevor Lawrence → George Kittle** (Tuten Brown is the The Shart, Doug)
 
-- **Any good beer in IA?** has Travis Kelce benched behind Colston
-  Loveland. Your TE is Hunter Henry (10% started). That's a real upgrade
-  available if Jeff ever needs a receiver.
-- **All of CJ's T-Shirts** has Isaiah Likely benched behind Tucker Kraft —
-  same shape, lower ceiling.
+Doug starts Bo Nix (33% started) at QB and has Kittle (48%) stuck on his
+bench behind Jake Ferguson (22%). Lawrence is a real QB upgrade for him;
+Kittle is a real TE upgrade over your Hunter Henry (10%). You convert a
+dead roster spot into a starting tight end. Both teams get better, which is
+what makes it likely to be accepted.
 
-## Read on the managers
+**2. A spare WR → a spare RB** (Briar Steffenhagen, Patrick Herb)
 
-Draft grades and lineup status suggest a soft league:
+He has 4 RBs and only 2 WRs, is starting Wan'Dale Robinson (7% started) at
+WR2, has no tight end at all, and projects league-worst at 49.31. Offer
+Jordan Addison or Jakobi Meyers for Rachaad White or Chris Rodriguez Jr. Low
+stakes both ways, and it fills your RB2.
 
-| Team | Grade | Lineup set? |
-|---|---|---|
-| Any good beer in IA? | A+ | yes |
-| One Particular Q-DO | A+ | yes |
-| All of CJ's T-Shirts | D | yes |
-| Buc-ee | D- | **no** |
-| The Last Blanche | F | **no** |
+**Do not trade Drake London.** Behind him you have nothing at receiver.
 
-Two of five haven't set a Week 1 lineup, and four of five have no kicker
-and no defense. In a league where attention is this uneven, streaming K
-and DEF aggressively every week is a standing edge — not a one-time fix.
+## Waivers are the main lever
 
-## Waiver strategy
+You have 3rd priority. In priority-order waivers, using it drops you to
+last, so it's one shot.
 
-You have 3rd waiver priority. In priority-order waivers, using it drops
-you to last, so it's one shot.
+- **Spend it on the best available RB.** Scarcest slot, and the only
+  position where the wire has real competition.
+- **Take K and DEF as ordinary free agents.** Everyone needs one, but there
+  are 32 of each. Don't burn priority there.
+- **Avoid bye weeks 6 and 7.** Week 6 already takes Aaron Jones and Jordan
+  Addison; week 7 takes both QBs plus Meyers.
 
-- **Spend the claim on the best available RB.** That's your scarcest slot
-  and the only position where the wire has real competition.
-- **Do not spend it on a kicker or defense.** Those go unclaimed in most
-  leagues; take them as ordinary free agents. Even here, with everyone
-  needing one, there are 32 of each to go around.
-- **Prefer byes outside weeks 6 and 7.** Week 6 already takes Aaron Jones
-  and Jordan Addison; week 7 takes both your QBs and Meyers.
+Beyond week 1, the honest strategy for a roster this thin is transaction
+volume: use the 8 open spots to churn the wire every week hunting for the
+RB who inherits a workload. You won't win this league on the roster you
+drafted.
+
+## Week 1
+
+You need to fill RB2, K, and DEF, and set a lineup, or you take a zero
+against Quinn's 75.63. Even done perfectly, your six current starters are
+below his seven — this is likely a loss, and the goal is to not compound it
+by forfeiting.
 
 ## Caveat
 
 Player evaluations reflect knowledge through roughly May 2026 — no 2026
-camp reports, preseason depth charts, or summer injury news. The
-structural analysis (roster counts, empty slots, bye collisions, the
-K/DEF arbitrage) is drawn from the pages themselves and holds regardless.
+camp reports, preseason depth charts, or summer injury news. The structural
+work (roster counts, positional shape, bye collisions, trade fits) comes
+from the pages themselves and holds regardless.
