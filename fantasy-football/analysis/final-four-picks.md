@@ -7,7 +7,7 @@ Roster is at 12. These four fill every remaining hole.
 | 1 | **Alvin Kamara** | RB | NO | 8 | Saints' No. 2 and **primary pass-catching back**. Standalone weekly value, not a pure handcuff. Clean bye. |
 | 2 | **Jalen Coker** | WR | Car | 5 | Top week 1 add, breakout profile. Bye 5 is your only completely empty week. |
 | 3 | **Denver** | DEF | Den | 10 | Best season-long unit available (Houston and the Rams are taken). Bye 10 is clean for you. |
-| 4 | **Jake Elliott** | K | Phi | 10 | Best opening three-game schedule, clean bye |
+| 4 | **Harrison Butker** | K | KC | 5 | Elite offense, and bye 5 avoids colliding with the Denver defense |
 
 ## Take them in that order
 
@@ -81,3 +81,28 @@ behind on ranking.
 Seattle finished as last year's top scoring defense and is the better raw
 unit, but its week 11 bye lands on London, Jeudy, and Henry. For a defense
 you never touch, that matters more than the talent gap.
+
+
+## Kicker — bye conflict with the Denver defense
+
+Jake Elliott was my pick before you settled on holding Denver. **Both are on
+bye in week 10.** Taking both leaves you with an empty kicker *and* an empty
+defense that week — the exact hole we've spent four adds closing.
+
+Corrected board:
+
+| K | Team | Bye | Fit |
+|---|---|---|---|
+| **Harrison Butker** | KC | **5** | Elite offense, no roster collision at all |
+| Tyler Loop | Bal | 13 | Also completely clean |
+| Chris Boswell | Pit | 9 | Spears and Okonkwo already out that week |
+| Jake Bates | Det | 6 | Jones and Addison already out |
+| ~~Jake Elliott~~ | Phi | 10 | **Collides with Denver** |
+| ~~Chase McLaughlin~~ | TB | 10 | **Collides with Denver** |
+
+**Butker.** Kansas City generates scoring chances every week, and week 5 is
+a week you currently lose nobody.
+
+Brandon Aubrey is gone, which was the one kicker genuinely worth reaching
+for. After him the position is close to interchangeable, so schedule fit
+decides it.
