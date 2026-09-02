@@ -54,3 +54,36 @@ covers all three.
 Stream one that week — don't spend a pick on it now.
 
 **Week 11 is thin**: London, Jeudy, and Henry all out.
+
+## Last two picks
+
+| # | Player | Pos | Team | Bye |
+|---|---|---|---|---|
+| 1 | **Alvin Kamara** | RB | NO | 8 |
+| 2 | **Kayshon Boutte** | WR | **Hou** | 8 |
+
+### Correction — Boutte is a Texan now
+
+I told you to skip Kayshon Boutte because of a week 11 bye. That was based
+on him being in New England. **He was traded to Houston**, which makes the
+bye week 8, not 11 — and he slots straight into the Texans' WR2 role.
+
+### And the reason he has that role is on your roster
+
+**Jayden Higgins is out for the season.** Boutte's path to targets opened
+because Higgins is done — the same Higgins sitting on your IR. That's a
+roster spot you can clear outright, not just stash.
+
+Boutte gives you a defined WR2 role on a real offense, and he beats Meyers
+(3% started) for your flex any week Love sits.
+
+### One cost worth knowing
+
+Kamara and Boutte are both on bye in week 8, which had been a clean week.
+You'd still have Jones, Spears, and Love at running back and London plus
+Addison at receiver, so it holds — but it's no longer a free week.
+
+### Also note
+
+Butker is your only kicker and byes in **week 5**. You'll need to stream a
+kicker that week.
