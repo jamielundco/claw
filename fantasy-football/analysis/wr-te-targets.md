@@ -48,3 +48,20 @@ concentrate more damage there.
 
 Defense and kicker still come first — those are empty starting slots
 scoring zero. WR and TE here are upgrades over players you already have.
+
+## Taken-list tracking
+
+Three waves reported taken, roughly 25 players:
+
+1. Jeremiyah Love, Jadarian Price, MarShawn Lloyd, D. Stribling, KC Concepcion, J. Coleman, Tyson (+ two apparent team names)
+2. D. Stribling, KC Concepcion, Omar Cooper, Ja'Kobi Lane, **Jaylen Warren**, Mike Washington
+3. Sam Darnold, Stowers, Kyler Murray, Sadiq, Quentin Johnston, **Tyler Allgeier**, E. Johnson, Kaelon Black, Mendoza, Chris Godwin
+
+**Not one kicker or defense among them.** Every single add has been a QB, RB,
+WR, or TE. The league is fighting over skill players and leaving both of
+your empty starting slots completely uncontested — the two slots that are
+scoring you a guaranteed zero.
+
+Still available and unaffected: Jalen Coker, Chig Okonkwo, Gunnar Helm,
+Brenton Strange, Rashid Shaheed, Devaughn Vele, and every defense and
+kicker named in `next-priorities.md`.
