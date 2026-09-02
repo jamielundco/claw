@@ -37,8 +37,10 @@ Week 1 defense targets, all free in your league:
 | Jacksonville | vs Cleveland |
 | Baltimore | vs Indianapolis |
 
-Kicker: don't overthink it. Take one attached to a good offense and stream
-by matchup after that.
+Kicker targets: **Jake Elliott** (Phi, bye 10) has the best opening
+three-game schedule and a bye you lose nobody in. Also good: Harrison Butker
+(KC, bye 5), Tyler Loop (Bal, bye 13), Chase McLaughlin (TB, bye 10). Avoid
+Jake Bates (Det, bye 6) — you already lose Jones and Addison that week.
 
 ## 2. Tyler Allgeier, if he's still there
 
@@ -62,12 +64,22 @@ earlier. Line up a streaming QB before week 7 and don't get caught.
 
 Also thin: week 11 takes London, Jeudy, and Henry — your WR1 and your TE.
 
-## 5. Tight end is your weakest starting slot
+## 5. Tight end — optional upgrade
 
-Hunter Henry is started in 10% of leagues. The trade is still live: Doug
-(Tuten Brown is the The Shart) starts Bo Nix at QB and has **George Kittle
-benched** behind Jake Ferguson. Offer Trevor Lawrence for Kittle — he
-upgrades at QB, you upgrade at TE, and you convert a dead spot into a
-starter instead of just dropping it.
+Hunter Henry is started in 10% of leagues and his week 11 bye stacks on top
+of London and Jeudy. Available in your league:
 
-That's the better version of #3: trade Lawrence rather than cut him.
+| TE | Team | Bye | Note |
+|---|---|---|---|
+| Chig Okonkwo | Ten | 9 | Named a week 1 waiver target |
+| Gunnar Helm | Ten | 9 | TE30 ADP, strong target share metrics |
+| Brenton Strange | Jax | 7 | Good pickup, but bye 7 makes your worst week worse |
+
+A Tennessee tight end also spreads your byes better than Henry does. This is
+a marginal gain though — do it after the defense, kicker, and Allgeier.
+
+## Do not bother with
+
+A fourth running back or a sixth receiver. Those sit on your bench. Every
+add from here should either fill an empty starting slot or be a handcuff
+worth stashing.
