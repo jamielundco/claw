@@ -1,78 +1,65 @@
-# RB target board
+# RB board — verified against 2026 depth charts
 
-Derived from mapping all 39 rostered RBs to their NFL teams. Your clean bye
-weeks are **5, 9, 10, 12, 13, 14**. Avoid adding anyone on bye **6, 7, or 11**.
+Your clean bye weeks: **5, 9, 10, 12, 13, 14**. Avoid **6, 7, 11**.
 
-## Tier 1 — startable now (this is what the top claim is for)
+## Rostered
 
-| Target | Bye | Why |
-|---|---|---|
-| **Arizona's starter** (Benson / Conner) | 14 | Unclaimed backfield, offense produces (McBride 98% started), best bye |
-| **Pittsburgh's other back** | 9 | See below — best new find |
-| **Tennessee's lead back** | 9 | Unclaimed backfield, clean bye, but dead offense |
+| Player | Team | Bye | Situation |
+|---|---|---|---|
+| Jeremiyah Love | Ari | 14 | 3rd overall pick, expected lead back, but listed RB2 behind Allgeier and recovering from a high-ankle sprain |
+| Aaron Jones Sr. | Min | 6 | Committee with Jordan Mason, started in 7% of leagues |
 
-### The Pittsburgh find
+Two backs, both uncertain, three RB-capable slots.
 
-Only one Steelers RB is owned in the entire league: Rico Dowdle, and he is
-started in just **36%** of Yahoo leagues. A team's only owned back sitting
-at 36% means a committee — and the other half of that committee is a free
-agent.
+## 1. Jaylen Warren — Pittsburgh — bye 9
 
-Same shape in Green Bay (Josh Jacobs, also 36%), but Green Bay's bye is
-week 11, where you already lose London, Jeudy, and Henry. Pittsburgh's bye
-is week 9, where you lose nobody.
+**The pick.** The Pittsburgh deduction was right and this is the name: only
+Rico Dowdle is owned in your league, and Warren is listed **ahead of him**
+on the Steelers' 2026 depth chart. Coming off a career-best 952 rushing
+yards.
 
-Pittsburgh is my #2 behind Arizona, and it's close.
+- Listed RB1 on his own team, with no high draft pick behind him
+- Production already proven, not projected
+- Bye 9 — you lose nobody that week
+- Diversifies you into a second backfield
 
-## Tier 2 — the other seven spots
+## 2. Tyler Allgeier — Arizona — bye 14
 
-**Not one handcuff to an elite back is owned by anyone in this league.**
-Seventeen teams have exactly one RB owned and no backup:
+Listed **RB1 ahead of Love** on Arizona's current depth chart. Conner is
+third, Benson fourth.
 
-Bijan Robinson 99% · Jonathan Taylor 99% · Jahmyr Gibbs 99% ·
-Chase Brown 98% · De'Von Achane 98% · Saquon Barkley 98% ·
-Christian McCaffrey 98% · James Cook 98% · Derrick Henry 97% ·
-Omarion Hampton 97% · Kenneth Walker III 96% · Javonte Williams 94% ·
-Ashton Jeanty 93% · Breece Hall 91% · Travis Etienne 89% ·
-David Montgomery 77% · Quinshon Judkins 70%
+Strong case for taking him first: Love's high-ankle sprain is the kind that
+lingers, and if Love misses time Allgeier is the Cardinals' lead back. No
+one in your league owns a single Arizona running back, so you'd have the
+whole backfield locked up.
 
-That's what a 9-round draft leaves behind. In a normal league every one of
-those backups is rostered by week 2.
+Reason he's second: he insures a player you already own rather than adding
+an independent starter, and his role shrinks the moment Love is healthy.
+You need a third real back more than you need a hedge.
 
-**Four of them are listed Questionable for week 1 right now** — McCaffrey,
-Kenneth Walker, Jeanty, and Breece Hall — and no one owns any of their
-backups.
+## 3. Tony Pollard — Tennessee — bye 9
 
-Ranked for you, weighting starter risk against your bye needs:
+Listed starter, sharing with Tyjae Spears. Clean bye. Weak offense — one
+Titan is owned across your entire 14-team league, started in 7% of leagues.
+Fallback if 1 and 2 are gone.
 
-| Handcuff | Bye | Case |
-|---|---|---|
-| **San Francisco** | 8 | McCaffrey is 30, listed Q, long injury history. Highest-value handcuff in football. |
-| **Baltimore** | 13 | Derrick Henry is 32 carrying a huge load. Clean bye. |
-| **NY Jets** | 13 | Breece Hall listed Q. Clean bye. |
-| **Las Vegas** | 13 | Jeanty listed Q, rookie workload. Clean bye. |
-| **Indianapolis** | 13 | Jonathan Taylor's workload is enormous. Clean bye. |
-| **Philadelphia** | 10 | Same case for Saquon. Clean bye. |
-| **Kansas City** | 5 | Walker listed Q with injury history. Clean bye. |
+## Skip: Seattle
 
-Skip Miami, Detroit, Cincinnati (all bye 6) and Atlanta, Cleveland (bye 11)
-— you're already thin those weeks.
+George Holani leads a thin backfield, and Seattle's bye is week 11 where
+you already lose London, Jeudy, and Henry.
 
-## How to sequence it
+## Then the handcuffs
 
-1. Top claim → Arizona's starter. Startable body in an empty slot.
-2. Free-agent adds → Pittsburgh's other back, then work down Tier 2.
-3. K and DEF last. They'll still be there.
+Nobody in your league owns one. Ranked for your byes:
+San Francisco (8, McCaffrey is 30 and Questionable) · Baltimore (13, Henry
+is 32) · NY Jets (13, Hall Questionable) · Las Vegas (13, Jeanty
+Questionable) · Indianapolis (13) · Philadelphia (10)
 
-Tier 2 is lottery tickets, and that's the point — you have seven spare
-spots and a roster that can't win as constructed. One elite starter going
-down turns a free add into an instant RB1, and you'd be the only team
-positioned for it.
+## Correction
 
-## Caveat
+I earlier said take Trey Benson over James Conner in Arizona. Both are
+buried — Conner is third and Benson fourth behind Allgeier and Love. The
+team-level call was right; the player call was wrong. Moot now that you
+have Love, who is the piece worth having.
 
-I'm naming teams, not players, on purpose. Which specific back is the
-handcuff or the other half of a committee depends on 2026 depth charts I
-don't have — my player knowledge stops around May 2026. Yahoo will show you
-the name in seconds; the team-level analysis above comes from your league
-data and holds.
+Sources: NBC Sports and CBS Sports depth chart reporting, September 2026.
