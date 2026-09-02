@@ -6,7 +6,7 @@ Roster is at 12. These four fill every remaining hole.
 |---|---|---|---|---|---|
 | 1 | **Alvin Kamara** | RB | NO | 8 | Saints' No. 2 and **primary pass-catching back**. Standalone weekly value, not a pure handcuff. Clean bye. |
 | 2 | **Jalen Coker** | WR | Car | 5 | Top week 1 add, breakout profile. Bye 5 is your only completely empty week. |
-| 3 | **Denver** | DEF | Den | 10 | Best season-long unit available (Houston and the Rams are taken). Bye 10 is clean for you. |
+| 3 | **Philadelphia** | DEF | Phi | 10 | Top available unit — Houston, the Rams, Denver and Seattle are all taken. Bye 10 clean. |
 | 4 | **Harrison Butker** | K | KC | 5 | Elite offense, and bye 5 avoids colliding with the Denver defense |
 
 ## Take them in that order
@@ -106,3 +106,30 @@ a week you currently lose nobody.
 Brandon Aubrey is gone, which was the one kicker genuinely worth reaching
 for. After him the position is close to interchangeable, so schedule fit
 decides it.
+
+
+## Defense update — Denver taken
+
+The board has emptied fast. Season-long DST ranking, current status:
+
+| DEF | Status | Bye |
+|---|---|---|
+| Houston | taken | 8 |
+| LA Rams | taken | 11 |
+| Denver | **taken** | 10 |
+| Seattle | **taken** | 11 |
+| **Philadelphia** | **available** | **10 — clean** |
+| Baltimore | available | 13 — clean |
+| Kansas City | available | 5 — clean, but that's Butker's bye too |
+| Jacksonville | available | 7 — your worst week |
+| Washington | available | 7 — your worst week |
+
+**Philadelphia.** It was named a top-tier unit alongside Denver, so it's the
+direct replacement, and week 10 is still clear for you.
+
+Baltimore (bye 13) is the fallback if Philly goes.
+
+Butker at bye 5 stays correct alongside either — no collision.
+
+**Cameron Dicker just went, the first kicker off the board.** The position
+is no longer uncontested. Take Butker now rather than saving him for last.
